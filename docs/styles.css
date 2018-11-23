@@ -10,13 +10,13 @@ html, body {
     margin-top: 1em;
 }
 
-#image-holder > img{
+#image-holder{
     max-width: 100vw;
     max-height: 80vh;
     margin: auto;
 }
 
-#image-holder {
+#image-container {
     display: grid;
     width: 100%;
     margin: auto; 

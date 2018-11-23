@@ -17,12 +17,14 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        const imgs = new Promise((resolve, reject) => {
+        const img_array = new Promise((resolve, reject) => {
             $.getJSON("imgs.json", json => resolve(json));
         });
 
-        function loadImg(image_id) {
-            return new Promise((resolve, reject) => {
+        var correct_ans;
+
+        function load_img(image_id) {
+            new Promise((resolve, reject) => {
                 let url = '/imgs/' + image_id + '.jpg';
                 let img = new Image();
                 img.addEventListener('load', e => resolve(img));
@@ -30,17 +32,35 @@
                   reject(new Error(`Failed to load image's URL: ${url}`));
                 });
                 img.src = url;
-            });
-        }
-
-        function placeImg() {
-            loadImg('ISIC_0000030')
-            .then(img => document.getElementById('image-holder').appendChild(img))
+                img.id = 'image-holder';
+            })
+            .then(img => document.getElementById('image-holder').replaceWith(img))
             .catch(error => console.error(error));
         }
 
+        function new_question() {
+            get_random_img_id_promise().then(img => {
+                console.log(img);
+                load_img(img.image_id);
+                correct_ans = img.ans;    
+            });
+            
+        }
+
+        function get_random_img_id_promise() {
+            return img_array.then(function(value){
+                return value[Math.floor(Math.random()*value.length)];
+            });
+        }
+
         function button_click(clicked_id) {
-            alert(clicked_id);
+            let result = clicked_id == correct_ans;
+            alert(result);
+            new_question();
+        }
+
+        function app() {
+            new_question();
         }
 
     </script>
@@ -51,10 +71,11 @@
 
 </head>
 
-<body onload="placeImg()">
+<body onload="app()">
 
     <div id="main">
-        <div id="image-holder"></div>
+        <div id="image-container"><img id="image-holder"></div>
+            
         <div id="buttons">
             <button id="nev" onClick="button_click(this.id)">Naevus</button>
             <button id="mel" onClick="button_click(this.id)">Melanoma</button>
