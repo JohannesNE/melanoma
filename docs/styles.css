@@ -1,0 +1,50 @@
+html, body { 
+    margin: 0; padding: 0;
+    height: 100%; 
+    overflow: auto;
+
+}
+
+#main {
+    display: grid;
+    margin-top: 1em;
+}
+
+#image-holder > img{
+    max-width: 100vw;
+    max-height: 80vh;
+    margin: auto;
+}
+
+#image-holder {
+    display: grid;
+    width: 100%;
+    margin: auto; 
+    color: dimgrey;
+    font-family: 'Merriweather', Times, serif;
+}
+
+#buttons {
+    margin: auto;
+    padding-top: 1em;
+}
+
+button {
+    width: 25vw;
+    height: 2em;
+    text-
+}
+
+#buttom {
+    height: 10px; 
+    width: 90%;
+    position: fixed; 
+    bottom:2%;
+    color: dimgray;
+    padding-left: 40px;
+    padding-right: 0px;
+
+}
+#buttom a, a:visited {
+    color: rgb(66, 66, 66)
+}
