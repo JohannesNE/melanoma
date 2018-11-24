@@ -4,7 +4,7 @@ library(tidyverse)
 library(stringr)
 library(jsonlite)
 
-melanoma_img <- read_delim("head30.csv",
+melanoma_img <- read_delim("ISIC-2017_Training_Part3_GroundTruth.csv",
 ",", col_names = TRUE,
 trim_ws = TRUE)
 
@@ -20,4 +20,4 @@ save_json <- function(df) {
   cat(toJSON(df, pretty = TRUE), file = paste0(lit_times_path, sub(':', '_', df$time[1]), ".json"))
 }
 
-lapply(litclock_list, save_json)
+cat(toJSON(melanoma_img_simple, dataframe = 'rows', pretty = TRUE), file = 'docs/imgs.json')

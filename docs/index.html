@@ -3,69 +3,22 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123318858-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123318858-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'UA-123318858-1');
-    </script>  -->
+        gtag('config', 'UA-123318858-2');
+    </script>
 
-    <meta charset="utf-8"/>
+
+    <meta charset="utf-8" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        const img_array = new Promise((resolve, reject) => {
-            $.getJSON("imgs.json", json => resolve(json));
-        });
 
-        var correct_ans;
-
-        function load_img(image_id) {
-            new Promise((resolve, reject) => {
-                let url = '/imgs/' + image_id + '.jpg';
-                let img = new Image();
-                img.addEventListener('load', e => resolve(img));
-                img.addEventListener('error', () => {
-                  reject(new Error(`Failed to load image's URL: ${url}`));
-                });
-                img.src = url;
-                img.id = 'image-holder';
-            })
-            .then(img => document.getElementById('image-holder').replaceWith(img))
-            .catch(error => console.error(error));
-        }
-
-        function new_question() {
-            get_random_img_id_promise().then(img => {
-                console.log(img);
-                load_img(img.image_id);
-                correct_ans = img.ans;    
-            });
-            
-        }
-
-        function get_random_img_id_promise() {
-            return img_array.then(function(value){
-                return value[Math.floor(Math.random()*value.length)];
-            });
-        }
-
-        function button_click(clicked_id) {
-            let result = clicked_id == correct_ans;
-            alert(result);
-            new_question();
-        }
-
-        function app() {
-            new_question();
-        }
-
-    </script>
     <link rel="stylesheet" href="styles.css">
-    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <title>Melanoma Quiz</title>
 
@@ -75,12 +28,24 @@
 
     <div id="main">
         <div id="image-container"><img id="image-holder"></div>
-            
-        <div id="buttons">
-            <button id="nev" onClick="button_click(this.id)">Naevus</button>
-            <button id="mel" onClick="button_click(this.id)">Melanoma</button>
-            <button id="seb" onClick="button_click(this.id)">Seborrhoeic keratosis</button>
+
+        <div id="below_img">
+            <span id="stats"></span>
+            <div id="arrows">
+                <a id="back" onClick="nav_click(this.id)">
+                    <</a> <a id="forward" onClick="nav_click(this.id)">>
+                </a>
+                <a id="current" onClick="nav_click(this.id)">>></a>
+            </div>
         </div>
+
+        <div id="buttons">
+            <a id="nev" class="button" onClick="button_click(this.id)">Naevus [1]</a>
+            <a id="mel" class="button" onClick="button_click(this.id)">Melanoma [2]</a>
+            <a id="seb" class="button" onClick="button_click(this.id)">Seborrhoeic keratosis [3]</a>
+        </div>
+
+
 
     </div>
 
@@ -90,6 +55,7 @@
         </span>
     </div>
 
+    <script src="main.js"></script>
 
 </body>
 
