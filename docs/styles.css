@@ -97,7 +97,7 @@ a.button_right{
     color: rgb(66, 66, 66)
 }
 
-@media not all and (hover:hover) {
+@media (hover:hover) {
     a.button:hover {
         color:white;
         background-color: dimgrey;
