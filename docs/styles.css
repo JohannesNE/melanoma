@@ -36,10 +36,6 @@ html, body {
     margin: auto;
 }
 
-#arrows {
-    
-}
-
 #arrows a {
     font-size: 30pt;
     margin-left: 20px;
@@ -107,4 +103,53 @@ a.button_right, a.button_right:hover{
 }
 #buttom a, a:visited {
     color: rgb(66, 66, 66)
+}
+
+@media only screen and (max-device-width: 720px){
+
+    #main {
+        margin-top: 0em;
+    }
+
+    a.button {
+        display:block;
+        padding:0.35em 1.2em;
+        border:0.1em solid dimgrey;
+        margin:1em 0em;
+        width: 80vw;
+        border-radius:0.4em;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:inherit;
+        font-weight:300;
+        font-size: 40pt;
+        color:dimgrey;
+        text-align:center;
+        transition: all 0.2s;
+    }
+
+    #stats {
+        position: absolute; 
+        right: 0;
+        font-size: 20pt;
+        padding-top:30px;
+        text-align: left;
+    }
+
+    #arrows a {
+        font-size: 100pt;
+        margin-left: 30px;
+    }
+
+    #below_img {
+        width: 90%; 
+        text-align: left; 
+        position: relative;
+        margin: auto;
+    }
+
+    #buttom {
+        font-size: 20pt;
+        bottom: 5%;
+    }
 }
