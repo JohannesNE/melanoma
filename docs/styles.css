@@ -41,10 +41,6 @@ html, body {
     margin-left: 20px;
 }
 
-#arrows a:hover {
-    color: #aaaaaa;
-}
-
 #stats {
     position: absolute; 
     right: 0;
@@ -74,10 +70,6 @@ a.button {
     text-align:center;
     transition: all 0.2s;
 }
-a.button:hover {
-    color:white;
-    background-color: dimgrey;
-}
 
 a.button_wrong, a.button_wrong:hover{
     color:white;
@@ -103,6 +95,29 @@ a.button_right, a.button_right:hover{
 }
 #buttom a, a:visited {
     color: rgb(66, 66, 66)
+}
+
+@media (hover: hover) {
+    a.button:hover {
+        color:white;
+        background-color: dimgrey;
+    }
+
+    #arrows a:hover {
+        color: #aaaaaa;
+    }
+
+    a.button_wrong:hover{
+        color:white;
+        background-color: red;
+        border-color: red;
+    }
+
+    a.button_right:hover{
+        color:white;
+        background-color: green;
+        border-color: green;
+    }
 }
 
 @media only screen and (max-device-width: 720px){
@@ -150,6 +165,10 @@ a.button_right, a.button_right:hover{
 
     #buttom {
         font-size: 20pt;
-        bottom: 5%;
+        bottom: 3%;
+    }
+
+    #image-container {
+        height: 50vh;
     }
 }
