@@ -71,13 +71,13 @@ a.button {
     transition: all 0.2s;
 }
 
-a.button_wrong, a.button_wrong:hover{
+a.button_wrong{
     color:white;
     background-color: red;
     border-color: red;
 }
 
-a.button_right, a.button_right:hover{
+a.button_right{
     color:white;
     background-color: green;
     border-color: green;
@@ -97,7 +97,7 @@ a.button_right, a.button_right:hover{
     color: rgb(66, 66, 66)
 }
 
-@media (hover: hover) {
+@media (hover:hover) {
     a.button:hover {
         color:white;
         background-color: dimgrey;
@@ -141,6 +141,18 @@ a.button_right, a.button_right:hover{
         color:dimgrey;
         text-align:center;
         transition: all 0.2s;
+    }
+
+    a.button_wrong{
+        color:white;
+        background-color: red;
+        border-color: red;
+    }
+    
+    a.button_right{
+        color:white;
+        background-color: green;
+        border-color: green;
     }
 
     #stats {
