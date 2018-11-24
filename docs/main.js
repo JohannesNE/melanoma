@@ -14,7 +14,7 @@ var hist_int = 0;
 
 function load_img(image_id) {
     new Promise((resolve, reject) => {
-        let url = '/imgs/' + image_id + '.jpg';
+        let url = 'imgs/' + image_id + '.jpg';
         let img = new Image();
         img.addEventListener('load', e => resolve(img));
         img.addEventListener('error', () => {
