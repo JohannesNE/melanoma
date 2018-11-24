@@ -169,6 +169,11 @@ a.button_right, a.button_right:hover{
     }
 
     #image-container {
-        height: 50vh;
+        height: 45vh;
+    }
+
+    #image-holder{
+        max-height: 45vh;
+        margin: 0 auto;
     }
 }
