@@ -97,7 +97,7 @@ a.button_right{
     color: rgb(66, 66, 66)
 }
 
-@media (hover:hover) {
+@media (hover:hover) and (min-device-width: 720px){
     a.button:hover {
         color:white;
         background-color: dimgrey;
