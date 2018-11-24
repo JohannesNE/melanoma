@@ -52,8 +52,9 @@ html, body {
 #stats {
     position: absolute; 
     right: 0;
-    font-size: 16pt;
-    padding-top: 10px;
+    font-size: 10pt;
+    padding-top:5px;
+    text-align: left;
 }
 
 #buttons {

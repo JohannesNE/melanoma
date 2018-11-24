@@ -63,13 +63,31 @@ function button_click(clicked_id) {
         
         set_buttons(correct_ans, clicked_id);
 
-            // Show stats
+        // Show stats
         let stats_correct = 0;
+        let mel_correct = 0;
+        let mel_total = 0;
+        let ben_correct = 0;
+        let ben_total = 0;
         hist.forEach(element => {
             if (element.answer == element.correct_ans) stats_correct++;
+
+            // For spec. and sens.
+            if (element.correct_ans == "mel"){
+                mel_total ++;
+                if(element.answer == "mel") mel_correct++;
+            } 
+            if (element.correct_ans != "mel") {
+                ben_total++;
+                if (element.answer != "mel") ben_correct++;
+            }
         });
-        document.getElementById('stats').textContent = 
-        `${stats_correct}/${hist.length} (${(stats_correct*100/hist.length).toFixed(1)} %)`;
+        document.getElementById('stats').innerHTML = 
+        `
+        ${stats_correct}/${hist.length} (${(stats_correct*100/hist.length).toFixed(1)} %) <br/>
+        Melanoma sensitivity: ${(mel_correct*100/mel_total).toFixed(1)} % <br/>
+        Melanoma specificity: ${(ben_correct*100/ben_total).toFixed(1)} %
+        `;
 
         setTimeout(function(){
             reset_buttons();
