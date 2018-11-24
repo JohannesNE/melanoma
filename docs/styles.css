@@ -36,9 +36,8 @@ html, body {
     margin: auto;
 }
 
-#arrows a {
+#arrows a i {
     font-size: 30pt;
-    margin-left: 20px;
 }
 
 #stats {
@@ -163,9 +162,8 @@ a.button_right{
         text-align: left;
     }
 
-    #arrows a {
+    #arrows a i {
         font-size: 100pt;
-        margin-left: 30px;
     }
 
     #below_img {
